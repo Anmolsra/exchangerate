@@ -37,7 +37,6 @@
             <div class="col-md-6">
                 <label for="currency" class="form-label">Currency:</label>
                 <select id="currency" class="form-select" required>
-                    <!-- Currency options will be populated by JavaScript -->
                 </select>
             </div>
             <div class="col-12 mt-4">
@@ -215,7 +214,6 @@
             "ZWL": "Zimbabwean Dollar (ZWL)"
         };
 
-        // Populate currency dropdown
         const currencySelect = document.getElementById('currency');
         for (const [code, name] of Object.entries(currencies)) {
             const option = document.createElement('option');
@@ -224,7 +222,6 @@
             currencySelect.appendChild(option);
         }
 
-        // Handle form submission
         document.getElementById('converterForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const amount = parseFloat(document.getElementById('amount').value);
@@ -236,8 +233,7 @@
                 return;
             }
 
-            // Use exchangerate-api.com or another free API for live rates
-            const apiKey = '71fee9ea031299ca2c18c951'; // Replace with your API key
+            const apiKey = '71fee9ea031299ca2c18c951';
             const url = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${currency}`;
 
             try {
